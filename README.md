@@ -1,18 +1,27 @@
-## Getting Started
+# 8 Bit Legend's
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+**8 Bit Legend's** es un videojuego en 2D desarrollado en Java, diseñado como proyecto académico para demostrar la aplicación de principios fundamentales de programación orientada a objetos, manejo de hilos y gráficos mediante la biblioteca `Swing`.
 
-## Folder Structure
+## 🎮 Descripción
 
-The workspace contains two folders by default, where:
+El juego presenta una estructura basada en tiles de 16x16 píxeles escalados, con una resolución de pantalla fija. La lógica del juego se maneja mediante un ciclo principal implementado con hilos, lo cual permite gestionar la actualización y el renderizado de forma eficiente.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## 🛠️ Tecnologías Utilizadas
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+- Java SE 8+
+- Swing (para la interfaz gráfica)
+- Hilos (implementación con `Runnable`)
+- VS Code (como entorno de desarrollo)
+- Sistema de tiles para diseño gráfico 2D
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
 
-## Dependency Management
+## 🚀 Cómo Ejecutar
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+1. Clona el repositorio o descarga el proyecto.
+2. Abre el proyecto en VS Code o tu IDE de preferencia.
+3. Asegúrate de tener Java instalado y configurado correctamente.
+4. Ejecuta el archivo `MainClass.java`.
+
+```bash
+javac src/App.java src/main/*.java -d bin
+java -cp bin main.MainClass
