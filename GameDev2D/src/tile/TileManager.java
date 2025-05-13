@@ -88,27 +88,34 @@ public class TileManager {
             tile[21] = new Tile();
             tile[21] .image = ImageIO.read(getClass().getResourceAsStream("res/tiles/Wall_Right_Top.png"));
 
-           
 
         //Agua/Aceite [1]
             tile[22] = new Tile();
             tile[22] .image = ImageIO.read(getClass().getResourceAsStream("res/tiles/Oil.png"));
-            
-            /* 
+            /*
             tile[23] = new Tile();
             tile[23] .image = ImageIO.read(getClass().getResourceAsStream(""));
             */
 
         }catch(IOException e){
             e.printStackTrace();
-            
         }
     }
     public void draw(Graphics2D g2){
-        g2.drawImage(tile[0].image, 0, 0, gp.tileSize, gp.tileSize, null);
-        g2.drawImage(tile[1].image, 48, 0, gp.tileSize, gp.tileSize, null);
-        g2.drawImage(tile[2].image, 96, 0, gp.tileSize, gp.tileSize, null);
-        
+        int col = 0; int row = 0; int x = 0; int y = 0;
+
+        while(col < gp.maxScreenCol && row < gp.maxScreenRow){
+            g2.drawImage(tile[0].image, x, y, gp.tileSize, null);
+            col++;
+            x += gp.tileSize;
+            if(col == gp.maxScreenCol){
+                col = 0;
+                x = 0;
+                row++;
+                y += gp.tileSize;
+
+            }
+        }
     }
 
 }
