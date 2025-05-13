@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import javax.imageio.ImageIO;
 import main.GamePanel;
-import java.awt.color.*;
 
 public class TileManager {
     GamePanel gp;
@@ -24,7 +23,7 @@ public class TileManager {
     }
 
     public void getTileImage(){
-        
+
         //Getter's de Casillas.
         try{
         //Piso [9]
@@ -142,7 +141,7 @@ public class TileManager {
         while(col < gp.maxScreenCol && row < gp.maxScreenRow){
             int tileNum = mapTileNum[col][row];
 
-            g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, null);
+            g2.drawImage(tile[tileNum].image, x, y, gp.tileSize, gp.tileSize,  null);
             col++;
             x += gp.tileSize;
             if(col == gp.maxScreenCol){
