@@ -103,7 +103,7 @@ public class TileManager {
             tile[23] .image = ImageIO.read(getClass().getResourceAsStream(""));
             */
 
-        }catch(IOException e){
+        } catch(IOException e){
             e.printStackTrace();
         }
     }
@@ -111,28 +111,28 @@ public class TileManager {
     public void loadMap(String filePath){
         try {
             InputStream is = getClass().getResourceAsStream(filePath);
-            BufferedReader br = new BufferedReader(new InputStreamReader(is));
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
+                int col = 0;
+                int row = 0;
 
-            int col = 0;
-            int row = 0;
+                while(col < gp.maxScreenCol && row < gp.maxScreenRow){
+                    String line = br.readLine();
 
-            while(col < gp.maxScreenCol && row < gp.maxScreenRow){
-                String line = br.readLine();
+                    while(col<gp.maxScreenCol){
+                        String numbers[] = line.split(" ");
+                        int num = Integer.parseInt(numbers[col]);
 
-                while(col<gp.maxScreenCol){
-                    String numbers[] = line.split(" ");
-                    int num = Integer.parseInt(numbers[col]);
-
-                    mapTileNum[col][row] = num;
-                    col++;
+                        mapTileNum[col][row] = num;
+                        col++;
+                    }
+                    if(col == gp.maxScreenCol){
+                        col = 0;
+                        row++;
+                    }
                 }
-                if(col == gp.maxScreenCol){
-                    col = 0;
-                    row++;
-                }
+                br.close();
             }
-            br.close();
-        } catch (Exception e) {
+        } catch (IOException | NumberFormatException e) {
         }
     }
     public void draw(Graphics2D g2){
